@@ -2,32 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+:root{
+  --primary_blue:#4A5AEA;
+  --light_blue:#F0F4F5
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+
+header{
+  width: 100vw;
+  height: 70px;
+}
+.nav__link{
+  transition: .3s ease-in-out;
+}
+.mobile__link:hover,.nav__link:hover{
+  background-color: var(--primary_blue);
+  color: aliceblue;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.menu{
+  width: 50px;
+  cursor: pointer;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.menu__btn{
+  background-color: var(--primary_blue);
+  height: 2px;
+  width: 30px;
+  position: relative;
+  transition: .3s ease-in-out;
 }
+
+.menu__btn::after, .menu__btn::before{
+  content:"";
+  height: inherit;
+  width: inherit;
+  background-color: var(--primary_blue);
+  position: absolute;
+  transition: .3s ease-in-out;
+
+}
+.menu__btn::before{
+  transform: translateY(-7px);
+  
+}
+.menu__btn::after{
+  transform: translateY(7px);
+  
+}
+.menu__btn.active{
+  background-color: transparent;
+}
+.menu__btn.active::after{
+  transform: rotate(135deg);
+}
+.menu__btn.active::before{
+  transform: rotate(45deg);
+}
+
+
+.mobile__menu{
+  position: absolute;
+  height: calc(100vh - 70px);
+  top: 70px;
+  left: -100%;
+  width: 100%;
+  transition: .5s ease-in-out;
+  opacity: 0;
+}
+.mobile__menu.active{
+  left: 0;
+  opacity: 1;
+}
+
+.mobile__link{
+  background-color: white;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: .3s ease-in-out;
+}
+
+.mobile__link.active{
+  opacity: 1;
+  transform: translateX(0);
+}
+.mobile__link.active:nth-child(1){
+  transition-delay: .5s;
+}
+.mobile__link.active:nth-child(2){
+  transition-delay: .6s;
+}
+.mobile__link.active:nth-child(3){
+  transition-delay: .7s;
+}
+.mobile__link.active:nth-child(4){
+  transition-delay: .8s;
+}
+.mobile__link.active:nth-child(5){
+  transition-delay: .9s;
+}
+
+
