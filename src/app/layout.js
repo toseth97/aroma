@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./mediascreen.css";
 import Navigation from "@/components/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -12,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className={`overflow-x-hidden`}>
                 <header className="flex items-center justify-center shadow">
                     <Navigation />
                 </header>
