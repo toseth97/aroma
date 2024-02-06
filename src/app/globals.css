@@ -12,6 +12,7 @@
 header{
   width: 100vw;
   height: 70px;
+  z-index: 999;
 }
 .nav__link{
   transition: .3s ease-in-out;
@@ -77,30 +78,126 @@ header{
 }
 
 .mobile__link{
-  background-color: white;
-  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.862);
   transform: translateX(-20px);
-  transition: .3s ease-in-out;
+  transition: .2s ease-in-out;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+  
 }
+
 
 .mobile__link.active{
   opacity: 1;
   transform: translateX(0);
 }
 .mobile__link.active:nth-child(1){
-  transition-delay: .5s;
+  transition-delay: .2s;
 }
 .mobile__link.active:nth-child(2){
-  transition-delay: .6s;
+  transition-delay: .3s;
 }
 .mobile__link.active:nth-child(3){
-  transition-delay: .7s;
+  transition-delay: .4s;
 }
 .mobile__link.active:nth-child(4){
-  transition-delay: .8s;
+  transition-delay: .5s;
 }
 .mobile__link.active:nth-child(5){
-  transition-delay: .9s;
+  transition-delay: .6s;
+}
+
+.mobile__link.in-active{
+  opacity: 0;
+  transition: .3s ease-in-out;
+  transform: translateX(-20px);
+}
+
+.mobile__link.in-active:nth-child(1){
+  transition-delay: .5s;
+}
+.mobile__link.in-active:nth-child(2){
+  transition-delay: .4s;
+}
+.mobile__link.in-active:nth-child(3){
+  transition-delay: .3s;
+}
+.mobile__link.in-active:nth-child(4){
+  transition-delay: .2s;
+}
+.mobile__link.in-active:nth-child(5){
+  transition-delay: .1s;
+}
+
+.hero__section{
+  height: calc(100vh - 70px);
+}
+.hero__img{
+  background-color: var(--primary_blue);
+  position: relative;
+  
+}
+.hero__text{
+  background-color: var(--light_blue);
+}
+
+.cartImage{
+  height: 85%;
+  bottom: 30px;
+  width: 500px;
+  opacity: 0;
+  animation: fadeRight 1s forwards;
+}
+
+.browse-now__btn{
+  display: inline-block;
+  background-color: var(--primary_blue);
+  padding: 10px 25px;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  color:white
+}
+
+@keyframes fadeRight {
+  0%{
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(250px);
+  }
 }
 
 
+.hero__p1, .hero__p2, .hero__h1, .browse-now__btn{
+  opacity: 0;
+  animation: fadeUp 1s forwards;
+}
+
+.hero__p1{
+  animation-delay: .6s;
+}
+.hero__h1{
+  animation-delay: 1s;
+}
+.hero__p2{
+  animation-delay: 1.5s;
+}
+.browse-now__btn{
+  animation-delay: 2s;
+}
+
+@keyframes fadeUp {
+  0%{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100%{
+    opacity:1;
+    transform: translateY(0);
+  }
+  
+}
