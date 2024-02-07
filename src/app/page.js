@@ -8,23 +8,31 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
     const [trendingProduct, setTrendingProduct] = useState(null);
+    const [bestSeller, setBestSeller] = useState(null);
 
     // 3,19,33,42
     useEffect(() => {
         // Get the product
         (async () => {
-            const arr = [];
+            const arr1 = [];
+            const arr2 = [];
             const get = await getProduct();
-            arr.push(get[3], get[6], get[9]);
-            setTrendingProduct(arr);
+            arr1.push(get[3], get[6], get[9]);
+            setTrendingProduct(arr1);
+            arr2.push(get[6]);
+            setBestSeller(arr2);
         })();
     }, []);
 
     return (
         <main className="flex flex-col items-center justify-center w-full">
             <Hero />
-            <TrendingProduct product={trendingProduct} />
+            <TrendingProduct
+                product={trendingProduct}
+                text="Trending Product"
+            />
             <SlashSales />
+            <TrendingProduct product={bestSeller} text="Best Sellers" />
         </main>
     );
 }

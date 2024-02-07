@@ -259,11 +259,14 @@ header{
 
 
 .slash__sales{
-  height: 300px;
-  background-size: contain;
-  background-attachment: scroll;
+  height: 350px;
   position: relative;
-  background-image:  url("../assets/little-toy-supermarket-carts.jpg");
+  background-image:  linear-gradient(to right,  var(--light_blue), var(--light_blue), var(--primary_blue));
   overflow-y: hidden;
 
+}
+.slash__sales img{
+  top: -100px;
+  right: 50px;
+  
 }
