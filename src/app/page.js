@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import TrendingProduct from "@/components/TrendingProduct";
+import SlashSales from "@/components/SlashSales";
 import { getProduct } from "@/lib/product";
 import { useEffect, useState } from "react";
 
@@ -14,7 +15,7 @@ export default function Home() {
         (async () => {
             const arr = [];
             const get = await getProduct();
-            arr.push(get[3], get[20], get[48], get[42]);
+            arr.push(get[3], get[6], get[9]);
             setTrendingProduct(arr);
         })();
     }, []);
@@ -23,6 +24,7 @@ export default function Home() {
         <main className="flex flex-col items-center justify-center w-full">
             <Hero />
             <TrendingProduct product={trendingProduct} />
+            <SlashSales />
         </main>
     );
 }

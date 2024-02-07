@@ -22,7 +22,7 @@ header{
   width: 100vw;
   height: 70px;
   z-index: 999;
-  background-color: rgba(255, 255, 255, 0.862);
+  background-color: rgba(255, 255, 255, 0.929);
   backdrop-filter: blur(5px);
 }
 .nav__link{
@@ -89,7 +89,7 @@ header{
 }
 
 .mobile__link{
-  background-color: rgba(255, 255, 255, 0.862);
+  background-color: rgba(255, 255, 255, 0.929);
   transform: translateX(-20px);
   transition: .2s ease-in-out;
   z-index: 999;
@@ -225,4 +225,45 @@ header{
 
 .product__card:hover .blue__text{
   color: var(--primary_blue) !important;
+}
+
+
+.card__image__div{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+.card__image{
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+}
+
+.loading{
+  height: 50px;
+  width: 50px;
+  border: 3px solid var(--light_blue);
+  border-radius: 50%;
+  border-bottom-color: var(--primary_blue);
+  animation: loading 2s linear infinite ;
+}
+
+@keyframes loading {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(365deg);
+  }
+}
+
+
+.slash__sales{
+  height: 300px;
+  background-size: contain;
+  background-attachment: scroll;
+  position: relative;
+  background-image:  url("../assets/little-toy-supermarket-carts.jpg");
+  overflow-y: hidden;
+
 }
