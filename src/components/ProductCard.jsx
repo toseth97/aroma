@@ -20,6 +20,7 @@ const ProductCard = ({ item }) => {
                     : item.title}
             </h3>
             <p className=" opacity-70 font-bold">$ {item.price}.00</p>
+            <div></div>
         </div>
     );
 };
