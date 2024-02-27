@@ -1,8 +1,12 @@
 export const getProduct = async () => {
     try {
-        const raw = await fetch("https://fakestoreapi.com/products");
+        const raw = await fetch("https://api.escuelajs.co/api/v1/products");
         const product = await raw.json();
-        return product;
+        const filterProduct = product.filter(
+            (item) => item.description.length > 25
+        );
+
+        return filterProduct;
     } catch (err) {
         console.log(err);
     }

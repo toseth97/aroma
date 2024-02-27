@@ -155,7 +155,7 @@ header{
 .cartImage{
   height: 85%;
   bottom: 30px;
-  width: 500px;
+  width: 400px;
   opacity: 0;
   animation: fadeRight 1s forwards;
 }
@@ -269,4 +269,30 @@ header{
   top: -100px;
   right: 50px;
   
+}
+
+
+Footer{
+  background-color: #002347;
+  color: white;
+}
+footer p{
+  opacity: .6;
+}
+
+.contact_links{
+  display: block;
+  padding: 10px 0;
+  transition: .3s ease-in-out;
+}
+.contact_links:hover{
+  color: var(--primary_blue);
+}
+.icons{
+  font-size: 20px;
+  padding: 7px;
+  background-color: var(--primary_blue);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 }

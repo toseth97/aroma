@@ -17,25 +17,25 @@ const Navigation = () => {
             <Image src={Logo} alt="logo" width={150} height={150} />
             <ul className="lg:flex hidden h-full text-sm">
                 <Link
-                    href=""
+                    href="/"
                     className="h-full flex items-center px-4 nav__link"
                 >
                     <li>Home</li>
                 </Link>
                 <Link
-                    href=""
+                    href="/shop"
                     className="h-full flex items-center px-4 nav__link"
                 >
                     <li>Shop</li>
                 </Link>
                 <Link
-                    href=""
+                    href="/blog"
                     className="h-full flex items-center px-4 nav__link"
                 >
                     <li>Blogs</li>
                 </Link>
                 <Link
-                    href=""
+                    href="/pages"
                     className="h-full flex items-center px-4 nav__link"
                 >
                     <li>Pages</li>
@@ -56,7 +56,7 @@ const Navigation = () => {
                 }`}
             >
                 <Link
-                    href=""
+                    href="/"
                     onClick={handleMobile}
                     className={`py-4 w-full border-b flex items-center justify-center px-4 mobile__link ${
                         mobile ? "active" : "in-active"
@@ -65,7 +65,7 @@ const Navigation = () => {
                     <li>Home</li>
                 </Link>
                 <Link
-                    href=""
+                    href="/shop"
                     onClick={handleMobile}
                     className={`py-4 w-full border-b flex items-center justify-center px-4 mobile__link ${
                         mobile ? "active" : "in-active"
@@ -74,7 +74,7 @@ const Navigation = () => {
                     <li>Shop</li>
                 </Link>
                 <Link
-                    href=""
+                    href="/blog"
                     onClick={handleMobile}
                     className={`py-4 w-full border-b flex items-center justify-center px-4 mobile__link ${
                         mobile ? "active" : "in-active"

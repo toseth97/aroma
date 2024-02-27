@@ -13,7 +13,7 @@ const Hero = () => {
                 />
             </div>
             <div className="hero__text lg:w-7/12 w-11/12 h-full flex items-center flex-col  justify-center">
-                <div className="lg:w-7/12 w-11/12">
+                <div className="lg:w-8/12 w-11/12">
                     <p className="text-2xl opacity-70 hero__p1">Shop is fun</p>
                     <h1 className="font-bold text-5xl my-4 hero__h1">
                         BROWSE OUR PREMIUM PRODUCT

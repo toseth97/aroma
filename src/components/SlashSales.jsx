@@ -4,7 +4,7 @@ import Cart from "../assets/shopping-cart-removebg.png";
 
 const SlashSales = () => {
     return (
-        <div className="w-full slash__sales my-8 py-8">
+        <div className="w-full slash__sales my-8 py-16">
             <Image
                 src={Cart}
                 alt="cart"

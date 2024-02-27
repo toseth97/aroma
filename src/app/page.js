@@ -16,10 +16,10 @@ export default function Home() {
         (async () => {
             const arr1 = [];
             const arr2 = [];
-            const get = await getProduct();
-            arr1.push(get[3], get[6], get[9]);
+            const getApi = await getProduct();
+            arr1.push(getApi[3], getApi[6], getApi[9]);
             setTrendingProduct(arr1);
-            arr2.push(get[6]);
+            arr2.push(getApi[28], getApi[18], getApi[1]);
             setBestSeller(arr2);
         })();
     }, []);
