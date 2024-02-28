@@ -2,4 +2,9 @@
     .hero__section{
         height: calc(90vh - 70px);
     }
+    .card__image{
+        
+        width: max-content;
+        
+      }
 }

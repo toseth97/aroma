@@ -5,6 +5,7 @@ import ProductCard from "./ProductCard";
 import { getProduct } from "@/lib/product";
 
 const TrendingProduct = ({ product, text }) => {
+    console.log(product);
     return (
         <div className="flex flex-col justify-center lg:w-9/12 w-11/12 mt-16 pt-8">
             <p className="opacity-70">Popular Item in the market</p>

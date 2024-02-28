@@ -1,12 +1,14 @@
 export const getProduct = async () => {
     try {
-        const raw = await fetch("https://api.escuelajs.co/api/v1/products");
+        const raw = await fetch("https://dummyjson.com/products");
         const product = await raw.json();
-        const filterProduct = product.filter(
-            (item) => item.images[0][0] === "h"
-        );
+        // const filterProduct = product.filter(
+        //     (item) =>
+        //         item.images[0] === "'[\"https://placeimg.com/640/480/any\"]'"
+        // );
+        // console.log(filterProduct);
 
-        return filterProduct;
+        return product.products;
     } catch (err) {
         console.log(err);
     }

@@ -17,11 +17,12 @@ export default function Home() {
             const getApi = await getProduct();
 
             const arr1 = getApi.filter(
-                (item) => item.id == 26 || item.id == 30 || item.id == 28
+                (item) => item.id == 1 || item.id == 10 || item.id == 18
             );
             const arr2 = getApi.filter(
-                (item) => item.id == 30 || item.id == 43 || item.id == 48
+                (item) => item.id == 2 || item.id == 9 || item.id == 29
             );
+
             setTrendingProduct(arr1);
             setBestSeller(arr2);
         })();

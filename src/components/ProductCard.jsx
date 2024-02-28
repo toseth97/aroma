@@ -6,7 +6,7 @@ import { CiShoppingCart } from "react-icons/ci";
 const ProductCard = ({ item }) => {
     return (
         <div className="text-center w-full lg:w-4/12 p-4 product__card flex flex-col items-center justify-center">
-            <div className="w-full flex flex-col items-center justify-center card__image__div bg-green-100">
+            <div className="w-full flex flex-col items-center justify-center card__image__div">
                 <Image
                     src={item.images[0]}
                     alt="item.title"

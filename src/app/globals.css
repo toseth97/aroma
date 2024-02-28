@@ -236,7 +236,8 @@ header{
   overflow: hidden;
 }
 .card__image{
-  
+  height: 200px;
+  width: 250px;
   object-fit: contain;
 }
 
@@ -311,7 +312,7 @@ footer p{
 }
 
 .viewProductDiv{
-  background-color: rgba(255, 255, 255, 0.678);
+  background-color: rgba(204, 204, 204, 0.678);
   position: absolute;
   height: 80px;
   bottom: -100px;
