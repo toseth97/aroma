@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning={true}>
             <body className={`overflow-x-hidden`}>
                 <header className="flex items-center justify-center shadow sticky top-0">
                     <Navigation />

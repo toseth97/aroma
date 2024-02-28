@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import CartImage from "../assets/hero-banner.png.webp";
+import Link from "next/link";
 
 const Hero = () => {
     return (
@@ -25,7 +26,9 @@ const Hero = () => {
                         fly grass
                     </p>
 
-                    <button className="browse-now__btn">Browse Now</button>
+                    <Link href="/product">
+                        <button className="browse-now__btn">Browse Now</button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -14,7 +14,9 @@ const Navigation = () => {
 
     return (
         <nav className="lg:w-10/12 w-full lg:px-1 px-4 flex items-center justify-between h-full relative">
-            <Image src={Logo} alt="logo" width={150} height={150} />
+            <Link href="/">
+                <Image src={Logo} alt="logo" width={150} height={150} />
+            </Link>
             <ul className="lg:flex hidden h-full text-sm">
                 <Link
                     href="/"
@@ -23,10 +25,10 @@ const Navigation = () => {
                     <li>Home</li>
                 </Link>
                 <Link
-                    href="/shop"
+                    href="/product"
                     className="h-full flex items-center px-4 nav__link"
                 >
-                    <li>Shop</li>
+                    <li>Product</li>
                 </Link>
                 <Link
                     href="/blog"
@@ -65,13 +67,13 @@ const Navigation = () => {
                     <li>Home</li>
                 </Link>
                 <Link
-                    href="/shop"
+                    href="/product"
                     onClick={handleMobile}
                     className={`py-4 w-full border-b flex items-center justify-center px-4 mobile__link ${
                         mobile ? "active" : "in-active"
                     }`}
                 >
-                    <li>Shop</li>
+                    <li>Product</li>
                 </Link>
                 <Link
                     href="/blog"

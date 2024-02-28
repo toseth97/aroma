@@ -14,12 +14,15 @@ export default function Home() {
     useEffect(() => {
         // Get the product
         (async () => {
-            const arr1 = [];
-            const arr2 = [];
             const getApi = await getProduct();
-            arr1.push(getApi[3], getApi[6], getApi[9]);
+
+            const arr1 = getApi.filter(
+                (item) => item.id == 26 || item.id == 30 || item.id == 28
+            );
+            const arr2 = getApi.filter(
+                (item) => item.id == 30 || item.id == 43 || item.id == 48
+            );
             setTrendingProduct(arr1);
-            arr2.push(getApi[28], getApi[18], getApi[1]);
             setBestSeller(arr2);
         })();
     }, []);
