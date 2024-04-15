@@ -1,4 +1,6 @@
 import { Inter } from "next/font/google";
+import { useContext } from "react";
+import { ProductProvider } from "@/context/ProductContext";
 import "./globals.css";
 import "./mediascreen.css";
 import Navigation from "@/components/Navigation";
@@ -18,7 +20,9 @@ export default function RootLayout({ children }) {
                 <header className="flex items-center justify-center shadow sticky top-0">
                     <Navigation />
                 </header>
-                <main className="">{children}</main>
+                <ProductProvider>
+                    <main className="">{children}</main>
+                </ProductProvider>
                 <Footer />
             </body>
         </html>

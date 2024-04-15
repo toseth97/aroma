@@ -155,8 +155,9 @@ header{
 .cartImage{
   height: 85%;
   bottom: 30px;
-  width: 400px;
-  opacity: 0;
+  
+  opacity: 1;
+  background-color: rgb(210, 210, 210);
   animation: fadeRight 1s forwards;
 }
 
@@ -172,7 +173,7 @@ header{
 
 @keyframes fadeRight {
   0%{
-    opacity: 0;
+    opacity: 1;
     transform: translateX(200px);
   }
   100%{
