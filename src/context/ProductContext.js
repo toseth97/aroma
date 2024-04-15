@@ -8,6 +8,7 @@ export const ProductProvider = ({ children }) => {
     const [trendingProduct, setTrendingProduct] = useState(null);
     const [bestSeller, setBestSeller] = useState(null);
     const [products, setProducts] = useState(null);
+    const [productFilterBtn, setProductFilterBtn] = useState(false);
 
     // 3,19,33,42
     useEffect(() => {
@@ -30,7 +31,13 @@ export const ProductProvider = ({ children }) => {
 
     return (
         <ProductContext.Provider
-            value={{ trendingProduct, bestSeller, products }}
+            value={{
+                trendingProduct,
+                bestSeller,
+                products,
+                productFilterBtn,
+                setProductFilterBtn,
+            }}
         >
             {children}
         </ProductContext.Provider>
