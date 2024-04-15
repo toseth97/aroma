@@ -155,7 +155,7 @@ header{
 .cartImage{
   height: 85%;
   bottom: 30px;
-  
+  width: 350px;
   opacity: 1;
   background-color: rgb(210, 210, 210);
   animation: fadeRight 1s forwards;
@@ -237,7 +237,7 @@ header{
   overflow: hidden;
 }
 .card__image{
-  height: 200px;
+  height: 250px;
   width: 250px;
   object-fit: contain;
 }
