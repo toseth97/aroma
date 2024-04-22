@@ -64,7 +64,7 @@ const Product = () => {
                             </h1>
                             <div className="px-8">
                                 {cat.map((item) => (
-                                    <p key={item} className="my-1 py-1">
+                                    <p key={item} className="my-1 text-sm py-1">
                                         {item}
                                     </p>
                                 ))}
@@ -105,7 +105,7 @@ const Product = () => {
                         </div>
                     </div>
                 </div>
-                <div className="lg:w-8/12 w-full flex flex-wrap lg:mt-0 mt-16 border-t">
+                <div className="lg:w-8/12 w-full flex flex-wrap gap-2 lg:mt-0 mt-16 border-t items-center justify-center ">
                     {products ? (
                         products.map((item) => (
                             <ProductCard item={item} key={item.id} />

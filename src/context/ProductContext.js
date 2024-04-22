@@ -14,7 +14,7 @@ export const ProductProvider = ({ children }) => {
     useEffect(() => {
         // Get the product
         (async () => {
-            const getApi = await axios.get("https://dummyjson.com/products");
+            const getApi = await axios.get("/api/product");
             const data = getApi.data.products;
             const arr1 = data.filter(
                 (item) => item.id == 1 || item.id == 10 || item.id == 18

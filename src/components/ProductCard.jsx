@@ -5,25 +5,27 @@ import { CiShoppingCart } from "react-icons/ci";
 
 const ProductCard = ({ item }) => {
     return (
-        <div className="text-center lg:w-1/3 w-full p-4 product__card flex flex-col items-center justify-center lg:border-none border rounded-xl mt-2">
+        <div className="text-center lg:w-1/3 w-2/5 lg:p-4 p-2 product__card flex flex-col items-center justify-center lg:border-none border rounded-xl mt-2">
             <div className="w-full flex flex-col items-center justify-center card__image__div">
                 <Image
                     src={item.thumbnail}
                     alt="item.title"
-                    className="card__image w-full"
-                    width={700}
-                    height={700}
+                    className="card__image w-full h-auto object-cover"
+                    width={300}
+                    height={200}
                     loading="lazy"
                 />
-                <div className="w-full flex gap-3 items-center justify-center  viewProductDiv">
+                <div className="w-full flex gap-0 items-center justify-center  viewProductDiv">
                     <Link href={`product/${item.id}`}>
                         <CiShoppingCart className="viewProductIcon" />
                     </Link>
                 </div>
             </div>
 
-            <p className="h-8 mt-4 opacity-70 text-sm">{item.category}</p>
-            <h3 className="title__text lg:h-16 h-8 blue__text">
+            <p className="h-8 lg:mt-4 mt-1 opacity-70 text-xs">
+                {item.category}
+            </p>
+            <h3 className="title__text text-sm lg:h-16 h-8 blue__text">
                 {item.title.length > 35
                     ? `${item.title.slice(0, 36)}...`
                     : item.title}
