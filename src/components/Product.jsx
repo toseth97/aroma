@@ -73,7 +73,7 @@ const Product = () => {
                     </div>
                 </div>
             </div>
-            <div className="lg:w-10/12 w-11/12 bg-white lg:py-16 py-4 lg:px-8 px-2 flex items-start gap-8 z-10 relative">
+            <div className="w-11/12 bg-white lg:py-16 py-4 lg:px-8 px-2 flex items-start gap-8 z-10 relative">
                 <div
                     className={`lg:w-3/12 w-9/12 gap-8 flex flex-col items-center justify-center sticky lg:top-[80px] lg:block hidden z-10`}
                 >
@@ -105,7 +105,7 @@ const Product = () => {
                         </div>
                     </div>
                 </div>
-                <div className="lg:w-8/12 w-full flex flex-wrap gap-2 lg:mt-0 mt-16 border-t items-center justify-center ">
+                <div className="lg:w-10/12 w-full flex flex-wrap gap-2 lg:mt-0 mt-16 border-t items-center justify-center">
                     {products ? (
                         products.map((item) => (
                             <ProductCard item={item} key={item.id} />

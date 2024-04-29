@@ -15,7 +15,13 @@ const Navigation = () => {
     return (
         <nav className="lg:w-10/12 w-full lg:px-1 px-4 flex items-center justify-between h-full relative">
             <Link href="/">
-                <Image src={Logo} alt="logo" width={150} height={150} />
+                <Image
+                    src={Logo}
+                    alt="logo"
+                    width={150}
+                    height={150}
+                    priority={false}
+                />
             </Link>
             <ul className="lg:flex hidden h-full text-sm">
                 <Link

@@ -9,26 +9,19 @@ export const ProductProvider = ({ children }) => {
     const [bestSeller, setBestSeller] = useState(null);
     const [products, setProducts] = useState(null);
     const [productFilterBtn, setProductFilterBtn] = useState(false);
-
-    // 3,19,33,42
+    const [productLoading, setProductLoading] = useState(false);
+    //Load products from back end api
     useEffect(() => {
-        // Get the product
-        (async () => {
-            const getApi = await axios.get("/api/product");
-            const data = getApi.data.products;
-            const arr1 = data.filter(
-                (item) => item.id == 1 || item.id == 10 || item.id == 18
-            );
-            const arr2 = data.filter(
-                (item) => item.id == 2 || item.id == 9 || item.id == 29
-            );
-
-            setTrendingProduct(arr1);
-            setBestSeller(arr2);
-            setProducts(data);
-        })();
-    }, []);
-
+        setProductLoading((item) => true);
+        productLoading &&
+            (async () => {
+                const get = await axios.get("/api/product");
+                const data = get.data;
+                setBestSeller([data[0], data[12], data[28]]);
+                setTrendingProduct([data[4], data[9], data[2]]);
+                setProducts(data);
+            })();
+    }, [productLoading]);
     return (
         <ProductContext.Provider
             value={{

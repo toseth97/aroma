@@ -16,16 +16,7 @@ const productSchema = new Schema(
     { timestamps: true }
 );
 
-const categorySchema = new Schema(
-    {
-        title: { type: String, required: true },
-        imageUrl: { type: String, required: true },
-    },
-    { timestamps: true }
-);
+const Product =
+    mongoose.models.Product || mongoose.model("Product", productSchema);
 
-export const Product =
-    mongoose.model.Product || mongoose.model("Product", productSchema);
-
-export const Category =
-    mongoose.model.Category || mongoose.model("Category", categorySchema);
+export default Product;

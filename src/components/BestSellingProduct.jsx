@@ -4,9 +4,8 @@ import { useContext } from "react";
 import ProductContext from "@/context/ProductContext";
 import ProductCard from "./ProductCard";
 
-const TrendingProduct = ({ product, text }) => {
-    const { trendingProduct } = useContext(ProductContext);
-
+const BestSellingProduct = ({ product, text }) => {
+    const { bestSeller } = useContext(ProductContext);
     return (
         <div className="flex flex-col justify-center lg:w-9/12 w-11/12 mt-16 pt-8">
             <p className="opacity-70">Popular Item in the market</p>
@@ -15,8 +14,8 @@ const TrendingProduct = ({ product, text }) => {
                 <div className="u__line mb-8"></div>
             </div>
             <div className="w-full flex lg:flex-row flex-col items-center justify-between">
-                {trendingProduct ? (
-                    trendingProduct.map((item) => (
+                {bestSeller ? (
+                    bestSeller.map((item) => (
                         <ProductCard item={item} key={item.id} />
                     ))
                 ) : (
@@ -29,4 +28,4 @@ const TrendingProduct = ({ product, text }) => {
     );
 };
 
-export default TrendingProduct;
+export default BestSellingProduct;

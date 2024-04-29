@@ -1,5 +1,6 @@
 import connectDB from "@/lib/connectDB";
-import { Product, Category } from "@/model/allModels";
+import Product from "@/model/productModels";
+import Category from "@/model/categoryModel";
 
 import { NextResponse } from "next/server";
 

@@ -6,6 +6,7 @@ import SlashSales from "@/components/SlashSales";
 import { getProduct } from "@/lib/product";
 import { useContext } from "react";
 import ProductContext from "@/context/ProductContext";
+import BestSellingProduct from "@/components/BestSellingProduct";
 
 export default function Home() {
     const { trendingProduct, bestSeller } = useContext(ProductContext);
@@ -18,7 +19,7 @@ export default function Home() {
                 text="Trending Product"
             />
             <SlashSales />
-            <TrendingProduct product={bestSeller} text="Best Sellers" />
+            <BestSellingProduct product={bestSeller} text="Best Sellers" />
         </main>
     );
 }
