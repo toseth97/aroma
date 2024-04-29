@@ -230,18 +230,17 @@ header{
 
 
 .card__image__div{
-  height: fit-content;
-  width: fit-content;
-  object-fit: cover;
+  height:100%;
+  width: 100%;
+  object-fit: contain;
   position: relative;
   overflow: hidden;
 }
 .card__image{
-  height: 250px;
-  width: 250px;
+  height: 100%;
+  width: 100%;
   object-fit: contain;
 }
-
 .loading{
   height: 50px;
   width: 50px;

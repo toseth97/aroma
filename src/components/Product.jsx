@@ -105,7 +105,7 @@ const Product = () => {
                         </div>
                     </div>
                 </div>
-                <div className="lg:w-10/12 w-full flex flex-wrap gap-2 lg:mt-0 mt-16 border-t items-center justify-center">
+                <div className="lg:w-10/12 w-full  flex flex-wrap gap-2  items-center justify-center border-t">
                     {products ? (
                         products.map((item) => (
                             <ProductCard item={item} key={item.id} />
