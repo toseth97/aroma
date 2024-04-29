@@ -17,8 +17,8 @@ export const ProductProvider = ({ children }) => {
             (async () => {
                 const get = await axios.get("/api/product");
                 const data = get.data;
-                setBestSeller([data[0], data[12], data[28]]);
-                setTrendingProduct([data[4], data[9], data[2]]);
+                setBestSeller([data[1], data[12], data[28]]);
+                setTrendingProduct([data[0], data[9], data[2]]);
                 setProducts(data);
             })();
     }, [productLoading]);

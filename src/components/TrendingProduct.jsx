@@ -14,7 +14,7 @@ const TrendingProduct = ({ product, text }) => {
                 <h2 className="text-4xl font-bold my-2 title__text ">{text}</h2>
                 <div className="u__line mb-8"></div>
             </div>
-            <div className="w-full flex lg:flex-row flex-col items-center justify-between">
+            <div className="w-full flex items-start  justify-evenly gap-1 ">
                 {trendingProduct ? (
                     trendingProduct.map((item) => (
                         <ProductCard item={item} key={item.id} />
