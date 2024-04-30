@@ -6,17 +6,10 @@ import ProductCard from "./ProductCard";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Product = () => {
-    const { products, productFilterBtn, setProductFilterBtn } =
+    const { products, productFilterBtn, setProductFilterBtn, category } =
         useContext(ProductContext);
 
-    const cat = [
-        "smartphones",
-        "laptops",
-        "fragrances",
-        "skincare",
-        "groceries",
-        "decoration",
-    ];
+    const cat = category.map((items) => items.title);
 
     const filterDisplay = () => {
         setProductFilterBtn(!productFilterBtn);

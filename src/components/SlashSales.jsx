@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Cart from "../assets/shopping-cart-removebg.png";
 
 const SlashSales = () => {
@@ -17,7 +18,9 @@ const SlashSales = () => {
                 <p className="mt-4 opacity-70">
                     Him she&apos;d let them sixth saw light
                 </p>
-                <button className="browse-now__btn my-8">Browse Now</button>
+                <button className="browse-now__btn my-8">
+                    <Link href="/product">Browse Now</Link>
+                </button>
             </div>
         </div>
     );
