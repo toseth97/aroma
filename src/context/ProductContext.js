@@ -16,35 +16,25 @@ export const ProductProvider = ({ children }) => {
     useEffect(() => {
         setProductLoading((item) => true);
         productLoading &&
-            (async () => {
-                const getProduct = await axios.get("/api/product");
-                const productData = getProduct.data;
-
-                setBestSeller([
-                    productData[1],
-                    productData[12],
-                    productData[28],
-                ]);
-                setTrendingProduct([
-                    productData[0],
-                    productData[9],
-                    productData[2],
-                ]);
-                setProducts(productData);
-            })();
+            Promise.all([fetch("/api/product"), fetch("/api/category")])
+                .then((responses) => {
+                    return Promise.all(
+                        responses.map((response) => response.json())
+                    );
+                })
+                .then((data) => {
+                    const [data1, data2] = data;
+                    setBestSeller([data1[1], data1[12], data1[28]]);
+                    setTrendingProduct([data1[0], data1[9], data1[2]]);
+                    console.log(data1);
+                    console.log(data2);
+                    setCategory(data2.categories);
+                    setProducts(data1);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
     }, [productLoading]);
-
-    useEffect(() => {
-        setCategoryLoading((item) => true);
-        categoryLoading &&
-            (async () => {
-                const getCategory = await axios.get("/api/category");
-                const categoryData = getCategory.data.categories;
-                setCategory(categoryData);
-                console.log(category);
-                console.log(categoryData);
-            })();
-    }, [categoryLoading]);
 
     return (
         <ProductContext.Provider
