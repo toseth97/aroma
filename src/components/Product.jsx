@@ -1,11 +1,13 @@
 "use client";
-import React from "react";
+import { useRef, useEffect } from "react";
 import { useContext } from "react";
 import ProductContext from "@/context/ProductContext";
 import ProductCard from "./ProductCard";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Product = () => {
+    const shopHeroRef = useRef();
+
     const {
         productFilter,
         setProductFilter,
@@ -13,7 +15,22 @@ const Product = () => {
         search,
         handleSearch,
         handleCategoryFilter,
+        showMobileFilter,
+        setShowMobileFilter,
     } = useContext(ProductContext);
+
+    useEffect(() => {
+        const filterObserver = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+
+            if (entry.isIntersecting && entry.intersectionRatio > 0) {
+                setShowMobileFilter(false);
+            } else {
+                setShowMobileFilter(true);
+            }
+        });
+        filterObserver.observe(shopHeroRef.current);
+    }, []);
 
     const cat = category && category.map((items) => items.title);
     cat && cat.unshift("All");
@@ -23,10 +40,18 @@ const Product = () => {
     };
     return (
         <div className="w-full flex flex-col items-center min-h-screen justify-center relative">
-            <div className="fixed bottom-10 object-center bg-blue-700 px-8 py-2 text-white z-20 rounded-3xl">
+            <button
+                className={`${
+                    showMobileFilter ? " show" : null
+                }  fixed bottom-10 object-center bg-blue-700 px-8 py-2 showFilterBtn text-white z-20 rounded-3xl productFilterBtn`}
+            >
                 <p>Filter Products</p>
-            </div>
-            <div className="w-full shop__hero flex flex-col items-center justify-center">
+            </button>
+
+            <div
+                ref={shopHeroRef}
+                className="w-full shop__hero flex flex-col items-center justify-center"
+            >
                 <h1 className="text-4xl title__text font-bold mb-2">
                     Shop Category
                 </h1>

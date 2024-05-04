@@ -1,13 +1,32 @@
-import React from "react";
+"use client";
+import { useContext, useEffect, useRef } from "react";
+import ProductContext from "@/context/ProductContext";
 import Link from "next/link";
 import { FaLocationArrow } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 
 const Footer = () => {
+    const { setShowMobileFilter } = useContext(ProductContext);
+
+    const footerRef = useRef();
+    useEffect(() => {
+        const footerObserver = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            if (entry.isIntersecting && entry.intersectionRatio > 0) {
+                setShowMobileFilter(false);
+            } else {
+                setShowMobileFilter(true);
+            }
+        });
+        footerObserver.observe(footerRef.current);
+    }, []);
     const date = new Date().getFullYear();
     return (
-        <footer className="w-full flex flex-col items-center justify-center pt-16 text-xs font-light">
+        <footer
+            ref={footerRef}
+            className="w-full flex flex-col items-center justify-center pt-16 text-xs font-light"
+        >
             <div className="lg:w-9/12 w-11/12 flex justify-between lg:flex-row flex-col">
                 <div className="lg:w-4/12 w-full flex flex-col lg:text-left text-center mb-4">
                     <h2 className="text-2xl mb-4 font-bold">Our Mission</h2>

@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { set } from "mongoose";
 
@@ -15,6 +15,21 @@ export const ProductProvider = ({ children }) => {
     const [categoryLoading, setCategoryLoading] = useState(false);
     const [search, setSearch] = useState("");
     const [categorySearch, setCategorySearch] = useState("All");
+    const [showMobileFilter, setShowMobileFilter] = useState(false);
+
+    // const footerElement = document.getElementsByTagName("footer");
+
+    // const filterObserver = new IntersectionObserver((entries) => {
+    //     if (!entry.isIntersecting) {
+    //         setFilterIntersection((prev) => true);
+    //         console.log("changed to true");
+    //     } else {
+    //         setFilterIntersection((prev) => false);
+    //         console.log("changed to false");
+    //     }
+    // });
+
+    // filterObserver.observe(footerElement);
 
     //Load products from back end api
     useEffect(() => {
@@ -85,6 +100,8 @@ export const ProductProvider = ({ children }) => {
                 search,
                 handleSearch,
                 handleCategoryFilter,
+                setShowMobileFilter,
+                showMobileFilter,
             }}
         >
             {children}
