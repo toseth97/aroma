@@ -1,13 +1,17 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import ProductContext from "@/context/ProductContext";
 import { useParams } from "next/navigation";
+import { FaPlus, FaMinus } from "react-icons/fa6";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 const DetailedProduct = () => {
     const { products } = useContext(ProductContext);
     const [detailedProduct, setDetailedProduct] = useState({});
+    const [quantity, setQuantity] = useState(1);
     const { Id } = useParams();
     console.log(Id);
 
@@ -18,37 +22,90 @@ const DetailedProduct = () => {
         setDetailedProduct(getProductDetail);
     }, [Id, products]);
 
+    //order quantity function
+
+    function orderQuantity(params) {
+        if (params == "plus") {
+            setQuantity(quantity + 1);
+        } else if (params == "minus") {
+            if (quantity > 1) {
+                setQuantity(quantity - 1);
+            }
+        }
+    }
+
     console.log(detailedProduct);
     return (
-        <section className="w-full flex items-center justify-center py-16">
-            {detailedProduct ? (
-                <div className="flex flex-col lg:flex-row lg:justify-between justify-center w-11/12 lg:w-10/12 gap-8 ">
-                    <div className="lg:w-4/12 w-full rounded-lg">
-                        <Image
-                            alt={detailedProduct.title}
-                            src={detailedProduct.imageUrl}
-                            className="object-contain"
-                            width={400}
-                            height={400}
-                        />
+        <section className="w-full py-4 px-8">
+            <Link
+                className="mt-6 bg-orange-600 lg:py-2 py-3 rounded-full text-white inline-block w-12 text-4xl font-bold h-12 duration-200 ease-in-out hover:bg-orange-500 hover:shadow-2xl flex items-center justify-center"
+                href="/product"
+            >
+                <IoIosArrowRoundBack />
+            </Link>
+            <div className="w-full flex items-center justify-center py-8">
+                {" "}
+                {detailedProduct ? (
+                    <div className="flex flex-col lg:flex-row lg:justify-between justify-center w-11/12 lg:w-10/12 gap-8 ">
+                        <div className="lg:w-4/12 w-full rounded-lg">
+                            <Image
+                                alt={detailedProduct.title}
+                                src={detailedProduct.imageUrl}
+                                className="object-contain"
+                                width={400}
+                                height={400}
+                            />
+                        </div>
+                        <div className="lg:w-7/12 w-full">
+                            <h1 className="text-4xl font-bol title__text">
+                                {detailedProduct.title}
+                            </h1>
+                            <p className="text-sm my-4 opacity-80 text-justify">
+                                {detailedProduct.description}
+                            </p>
+                            <p className="font-semibold text-2xl title__text">
+                                ${detailedProduct.price}.00
+                            </p>
+                            <div className=" mt-4 flex lg:w-3/12 w-6/12  items-center justify-evenly  border rounded overflow-hidden ">
+                                <button
+                                    className="w-5/12 flex items-center justify-center grow-0 hover:bg-gray-200 active:bg-gray-200 duration-200 ease-in-out lg:py-3 lg:px-1 py-5 px-5"
+                                    onClick={() => orderQuantity("minus")}
+                                >
+                                    <FaMinus
+                                        style={{
+                                            color: "black",
+                                            fontSize: "14px",
+                                        }}
+                                    />
+                                </button>
+
+                                <p className="text-xl font-bold grow w-full text-center">
+                                    {quantity}
+                                </p>
+
+                                <button
+                                    className="w-5/12 flex items-center justify-center grow-0 hover:bg-gray-200 active:bg-gray-200 duration-200 ease-in-out lg:py-3 lg:px-1 py-5 px-5"
+                                    onClick={() => orderQuantity("plus")}
+                                >
+                                    <FaPlus
+                                        style={{
+                                            color: "black",
+                                            fontSize: "14px",
+                                        }}
+                                    />
+                                </button>
+                            </div>
+                            <button className="mt-6 bg-sky-900 lg:w-3/12 w-6/12 lg:py-2 py-3 rounded text-white duration-200 ease-in-out hover:bg-sky-800">
+                                Add to Cart
+                            </button>
+                        </div>
                     </div>
-                    <div className="lg:w-7/12 w-full">
-                        <h1 className="text-4xl font-bol title__text">
-                            {detailedProduct.title}
-                        </h1>
-                        <p className="text-sm my-8 opacity-80 text-justify">
-                            {detailedProduct.description}
-                        </p>
-                        <p className="font-semibold text-2xl title__text">
-                            ${detailedProduct.price}.00
-                        </p>
+                ) : (
+                    <div className="loading__screen h-52 flex items-center justify-center">
+                        <div className="loading"></div>
                     </div>
-                </div>
-            ) : (
-                <div className="loading__screen h-52 flex items-center justify-center">
-                    <div className="loading"></div>
-                </div>
-            )}
+                )}
+            </div>
         </section>
     );
 };

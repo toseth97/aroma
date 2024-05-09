@@ -12,7 +12,7 @@
 }
 
 *{
-  font-family: 'Poppins', sans-seri
+  font-family: 'Poppins', sans-serif
 }
 .title__text{
   font-family: 'Oswald', sans-serif;
@@ -167,7 +167,7 @@ header{
   padding: 10px 25px;
   outline: none;
   border: none;
-  border-radius: 25px;
+  border-radius: 10px;
   color:white
 }
 
