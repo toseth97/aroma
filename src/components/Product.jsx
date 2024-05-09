@@ -24,11 +24,12 @@ const Product = () => {
         const filterObserver = new IntersectionObserver((entries) => {
             const entry = entries[0];
 
-            if (entry.isIntersecting && entry.intersectionRatio > 0) {
+            if (entry.isIntersecting && entry.intersectionRatio < 1) {
                 setShowMobileFilter(false);
             } else {
                 setShowMobileFilter(true);
             }
+            console.log(entry);
         });
         filterObserver.observe(shopHeroRef.current);
     }, []);
@@ -41,7 +42,7 @@ const Product = () => {
     };
     return (
         <>
-            {mobileFilter && (
+            {productFilter && mobileFilter && (
                 <div className="w-full h-screen py-10 px-5 bg-black/50 fixed z-20">
                     <div className=" w-full flex flex-col items-center justify-center px-2">
                         <div className="productNav w-full  pb-8 flex flex-col items-center justify-center">
@@ -92,7 +93,7 @@ const Product = () => {
                     onClick={() => setMobileFilter((prev) => !prev)}
                     className={`${
                         showMobileFilter ? " show" : null
-                    }  fixed bottom-10 object-center bg-blue-700 px-8 py-2 showFilterBtn text-white z-20 rounded-3xl productFilterBtn`}
+                    }  fixed bottom-10 object-center bg-blue-700 px-8 py-2 showFilterBtn text-white z-20 rounded-3xl productFilterBtn lg:hidden block`}
                 >
                     {mobileFilter ? <p>X</p> : <p>Filter Products</p>}
                 </button>

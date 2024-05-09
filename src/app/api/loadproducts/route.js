@@ -38,5 +38,5 @@ async function load(item) {
 
 export async function POST(req, res) {
     await connectDB(); //open db connection
-    // data.forEach((item) => load(item));
+    data.forEach((item) => load(item));
 }

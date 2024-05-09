@@ -1,10 +1,14 @@
 "use client";
 import React from "react";
+import { useContext } from "react";
+import ProductContext from "@/context/ProductContext";
 import { useParams } from "next/navigation";
 
-const SinglePage = ({ products }) => {
+const DetailedProduct = () => {
+    const { products } = useContext(ProductContext);
     const { Id } = useParams();
-    const product = products.find((items) => items.id == Number(Id));
+    const product =
+        products && products.filter((items) => items.id == Number(Id));
     console.log(product);
     return (
         <>
@@ -17,4 +21,4 @@ const SinglePage = ({ products }) => {
     );
 };
 
-export default SinglePage;
+export default DetailedProduct;
