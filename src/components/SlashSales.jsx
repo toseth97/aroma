@@ -19,7 +19,7 @@ const SlashSales = () => {
                     Him she&apos;d let them sixth saw light
                 </p>
                 <button className="browse-now__btn my-8">
-                    <Link href="/product">Browse Now</Link>
+                    <Link href="/product">Get Started</Link>
                 </button>
             </div>
         </div>

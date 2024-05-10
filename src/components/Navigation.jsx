@@ -40,7 +40,7 @@ const Navigation = () => {
                     href="/blog"
                     className="h-full flex items-center px-4 nav__link"
                 >
-                    <li>Blogs</li>
+                    <li>Cart</li>
                 </Link>
                 <Link
                     href="/pages"
@@ -52,7 +52,7 @@ const Navigation = () => {
                     href=""
                     className="h-full flex items-center px-4 nav__link"
                 >
-                    <li>Contact</li>
+                    <li>About</li>
                 </Link>
             </ul>
 
@@ -88,7 +88,7 @@ const Navigation = () => {
                         mobile ? "active" : "in-active"
                     }`}
                 >
-                    <li>Blogs</li>
+                    <li>Cart</li>
                 </Link>
                 <Link
                     href=""
@@ -106,7 +106,7 @@ const Navigation = () => {
                         mobile ? "active" : "in-active"
                     }`}
                 >
-                    <li>Contact</li>
+                    <li>About</li>
                 </Link>
             </ul>
 

@@ -28,7 +28,7 @@ const Hero = () => {
                     </p>
 
                     <Link href="/product">
-                        <button className="browse-now__btn">Browse Now</button>
+                        <button className="browse-now__btn">Shop Now</button>
                     </Link>
                 </div>
             </div>

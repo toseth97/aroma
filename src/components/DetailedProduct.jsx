@@ -7,6 +7,8 @@ import ProductContext from "@/context/ProductContext";
 import { useParams } from "next/navigation";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DetailedProduct = () => {
     const { products } = useContext(ProductContext);
@@ -37,6 +39,7 @@ const DetailedProduct = () => {
     console.log(detailedProduct);
     return (
         <section className="w-full py-4 px-8">
+            <ToastContainer />
             <Link
                 className="mt-6 bg-orange-600 lg:py-2 py-3 rounded-full text-white inline-block w-12 text-4xl font-bold h-12 duration-200 ease-in-out hover:bg-orange-500 hover:shadow-2xl flex items-center justify-center"
                 href="/product"
@@ -95,7 +98,12 @@ const DetailedProduct = () => {
                                     />
                                 </button>
                             </div>
-                            <button className="mt-6 bg-sky-900 lg:w-3/12 w-6/12 lg:py-2 py-3 rounded text-white duration-200 ease-in-out hover:bg-sky-800">
+                            <button
+                                className="mt-6 bg-sky-900 lg:w-3/12 w-6/12 lg:py-2 py-3 rounded text-white duration-200 ease-in-out hover:bg-sky-800"
+                                onClick={() =>
+                                    toast.success("successfully added")
+                                }
+                            >
                                 Add to Cart
                             </button>
                         </div>
