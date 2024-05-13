@@ -357,11 +357,11 @@ footer p{
 
 .showFilterBtn{
   transform: translateY(20px);
-  opacity: 0;
+  display: hidden;
   transition: .3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 .showFilterBtn.show{
-  opacity: 1;
+  display: block;
   transform: translateY(0);
 }
 
