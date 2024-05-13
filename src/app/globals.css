@@ -30,6 +30,12 @@ header{
   flex: 1
 }
 
+.auth__btn{
+  height: 30px;
+  background-color: var(--primary_blue);
+  color: aliceblue;
+  display: block;
+}
 
 .mobile__link:hover,.nav__link:hover{
   background-color: var(--primary_blue);
