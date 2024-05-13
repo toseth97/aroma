@@ -5,6 +5,7 @@ import "./globals.css";
 import "./mediascreen.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SessionWrapper from "@/context/SessionProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,13 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={`overflow-x-hidden`}>
                 <ProductProvider>
-                    <header className="flex items-center justify-center shadow sticky top-0">
-                        <Navigation />
-                    </header>
-                    <main className="">{children}</main>
-                    <Footer />
+                    <SessionWrapper>
+                        <header className="flex items-center justify-center shadow sticky top-0">
+                            <Navigation />
+                        </header>
+                        <main className="">{children}</main>
+                        <Footer />
+                    </SessionWrapper>
                 </ProductProvider>
             </body>
         </html>

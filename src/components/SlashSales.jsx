@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Cart from "../assets/shopping-cart-removebg.png";
+import { signIn } from "next-auth/react";
 
 const SlashSales = () => {
     return (
@@ -18,8 +19,11 @@ const SlashSales = () => {
                 <p className="mt-4 opacity-70">
                     Him she&apos;d let them sixth saw light
                 </p>
-                <button className="browse-now__btn my-8">
-                    <Link href="/product">Get Started</Link>
+                <button
+                    className="browse-now__btn my-8"
+                    onClick={() => signIn()}
+                >
+                    Get Started
                 </button>
             </div>
         </div>
