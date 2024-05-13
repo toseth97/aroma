@@ -126,6 +126,9 @@ header{
 .mobile__link.active:nth-child(5){
   transition-delay: .6s;
 }
+.mobile__link.active:nth-child(6){
+  transition-delay: .7s;
+}
 
 .mobile__link.in-active{
   opacity: 0;
