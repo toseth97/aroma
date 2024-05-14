@@ -358,10 +358,12 @@ footer p{
 .showFilterBtn{
   transform: translateY(20px);
   display: hidden;
+  opacity: 0;
   transition: .3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 .showFilterBtn.show{
   display: block;
+  opacity: 1;
   transform: translateY(0);
 }
 
