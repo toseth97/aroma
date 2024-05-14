@@ -77,7 +77,7 @@ const Navigation = () => {
                         />
                         <div
                             className={`${
-                                profile ? " top-1 block " : " top-20 hidden"
+                                profile ? " top-12 block " : " top-20 hidden"
                             }   shadow-2xl border bg-white absolute w-[10rem] px-4 duration-300 ease-in-out flex flex-col items-center justify-center  gap-2 left-1/2 -translate-x-1/2 py-2`}
                         >
                             <Link
@@ -183,14 +183,37 @@ const Navigation = () => {
 
             <div className="h-full flex items-center justify-center lg:hidden block">
                 {session?.user && (
-                    <Image
-                        src={session.user.image}
-                        alt={session.user.name}
-                        className="rounded-full mx-4 lg:hidden block"
-                        title="profile"
-                        width={40}
-                        height={40}
-                    />
+                    <div className="relative cursor-pointer">
+                        <Image
+                            src={session.user.image}
+                            alt={session.user.name}
+                            className="rounded-full mx-4 lg:hidden block"
+                            title="profile"
+                            width={40}
+                            height={40}
+                            onClick={showProfile}
+                        />
+
+                        <div
+                            className={`${
+                                profile ? " top-12 block " : " top-20 hidden"
+                            }   shadow-2xl border bg-white absolute w-[10rem] px-4 duration-300 ease-in-out flex flex-col items-center justify-center  gap-2 left-1/2 -translate-x-1/2 py-2`}
+                        >
+                            <Link
+                                href="/profile"
+                                className="w-full p-2 mb-1 inline-block bg-blue-100 text-center"
+                            >
+                                Profile
+                            </Link>
+                            <button
+                                onClick={() => signOut()}
+                                className="mx-4 w-full px-4  rounded-3xl auth__btn"
+                            >
+                                {" "}
+                                Sign Out
+                            </button>
+                        </div>
+                    </div>
                 )}
                 <div
                     className={`menu h-full flex items-center justify-center lg:hidden block`}
