@@ -8,6 +8,15 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 const Product = () => {
     const shopHeroRef = useRef();
     const [mobileFilter, setMobileFilter] = useState(false);
+    const [screenWidth, setScreenWidth] = useState(null);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+            console.log(screenWidth);
+        };
+        handleResize();
+    }, [screenWidth]);
 
     const {
         productFilter,
@@ -29,10 +38,9 @@ const Product = () => {
             } else {
                 setShowMobileFilter(true);
             }
-            console.log(entry);
         });
         filterObserver.observe(shopHeroRef.current);
-    }, []);
+    }, [setShowMobileFilter]);
 
     const cat = category && category.map((items) => items.title);
     cat && cat.unshift("All");
@@ -43,7 +51,7 @@ const Product = () => {
     return (
         <>
             {productFilter && mobileFilter && (
-                <div className="w-full h-screen py-10 px-5 bg-black/50 fixed z-20">
+                <div className="w-full h-screen py-10 px-5 bg-black/50 fixed z-20  ">
                     <div className=" w-full flex flex-col items-center justify-center px-2">
                         <div className="productNav w-full  pb-8 flex flex-col items-center justify-center">
                             <h1 className=" productNav__title w-full text-white title__text flex items-center justify-center mb-8">
@@ -92,8 +100,8 @@ const Product = () => {
                 <button
                     onClick={() => setMobileFilter((prev) => !prev)}
                     className={`${
-                        showMobileFilter ? " show" : null
-                    }  fixed bottom-10 object-center bg-blue-700 px-8 py-2 showFilterBtn text-white z-20 rounded-3xl productFilterBtn lg:hidden block`}
+                        showMobileFilter && screenWidth < 800 ? " show" : null
+                    }  fixed bottom-10 object-center bg-blue-700 px-8 py-2 showFilterBtn text-white z-20 rounded-3xl lg:hidden`}
                 >
                     {mobileFilter ? <p>X</p> : <p>Filter Products</p>}
                 </button>
@@ -119,7 +127,7 @@ const Product = () => {
                         {
                             //******** desktop search *********/
                         }
-                        <div className=" w-full flex flex-col items-center justify-center px-2">
+                        <div className=" w-full  flex flex-col items-center justify-center px-2">
                             <div className="productNav w-full  pb-8 flex flex-col items-center justify-center">
                                 <h1 className=" productNav__title w-full text-white title__text flex items-center justify-center mb-8">
                                     Product Search

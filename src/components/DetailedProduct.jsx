@@ -15,7 +15,6 @@ const DetailedProduct = () => {
     const [detailedProduct, setDetailedProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const { Id } = useParams();
-    console.log(Id);
 
     // This useEffect is used because, there might be some cases where the user already have the url of the said products. In this way the Product Provider's product is empty. And if i filter it directly its gonna throw error. In need to pass the useEffect and Product dependency to ensure that it load product.
     useEffect(() => {
@@ -36,7 +35,6 @@ const DetailedProduct = () => {
         }
     }
 
-    console.log(detailedProduct);
     return (
         <section className="w-full py-4 px-8">
             <ToastContainer />
