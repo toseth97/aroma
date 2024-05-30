@@ -6,10 +6,13 @@ import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import { BsCart2 } from "react-icons/bs";
 import { useSession, signOut, signIn } from "next-auth/react";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 const Navigation = () => {
-    const { data: session } = useSession();
+    const { signIn } = useContext(AuthContext);
 
+    const { data: session } = useSession();
     const [mobile, setMobile] = useState(false);
     const [profile, setProfile] = useState(false);
     const handleMobile = () => {

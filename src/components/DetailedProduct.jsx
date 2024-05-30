@@ -9,8 +9,10 @@ import { FaPlus, FaMinus } from "react-icons/fa6";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { signIn, useSession } from "next-auth/react";
 
 const DetailedProduct = () => {
+    const { data: session } = useSession();
     const { products } = useContext(ProductContext);
     const [detailedProduct, setDetailedProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
@@ -108,12 +110,24 @@ const DetailedProduct = () => {
                             </div>
                         </div>
 
-                        <div className="w-full my-4 mt-8 flex flex-col items-center justify-center bg-sky-100">
-                            <div className="  w-full flex items-center justify-center">
+                        <div className="w-full my-4 mt-8 flex flex-col items-center justify-center ">
+                            <div className="  w-full flex items-center justify-center bg-sky-100">
                                 <h2 className="px-16 py-2 my-2 bg-white font-semibold">
                                     Reviews
                                 </h2>
                             </div>
+                            {session ? (
+                                <p className="mt-8 font-semibold">
+                                    This are the reviews
+                                </p>
+                            ) : (
+                                <button
+                                    href={signIn}
+                                    className="mt-8 font-semibold"
+                                >
+                                    Sign in to add review
+                                </button>
+                            )}
                         </div>
                     </>
                 ) : (
