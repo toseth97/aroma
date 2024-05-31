@@ -19,6 +19,7 @@ const handler = NextAuth({
 
                 (async () => {
                     await connectDB();
+                    console.log("code ran");
                     const existingUser = await User.find({
                         email: user.email,
                     });
