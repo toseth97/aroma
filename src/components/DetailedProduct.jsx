@@ -117,9 +117,15 @@ const DetailedProduct = () => {
                                 </h2>
                             </div>
                             {session ? (
-                                <div className="mt-8 font-semibold">
-                                    <p>This are the reviews</p>
-                                </div>
+                                detailedProduct.ratings ? (
+                                    <div className="mt-8 ">
+                                        <p>This are the reviews</p>
+                                    </div>
+                                ) : (
+                                    <div className="mt-8 ">
+                                        <p>No review for this product</p>
+                                    </div>
+                                )
                             ) : (
                                 <button
                                     href={signIn}
