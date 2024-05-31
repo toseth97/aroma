@@ -6,7 +6,6 @@ import "./mediascreen.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SessionWrapper from "@/context/SessionProvider";
-import { AuthProvider } from "@/context/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,13 +20,11 @@ export default function RootLayout({ children }) {
             <body className={`overflow-x-hidden`}>
                 <ProductProvider>
                     <SessionWrapper>
-                        <AuthProvider>
-                            <header className="flex items-center justify-center shadow sticky top-0">
-                                <Navigation />
-                            </header>
-                            <main className="">{children}</main>
-                            <Footer />
-                        </AuthProvider>
+                        <header className="flex items-center justify-center shadow sticky top-0">
+                            <Navigation />
+                        </header>
+                        <main className="">{children}</main>
+                        <Footer />
                     </SessionWrapper>
                 </ProductProvider>
             </body>
