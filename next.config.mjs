@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    async rewrites() {
-        return [
-            {
-                source: "/api/product", // Matches requests to /api/product on frontend
-                destination: "https://aroma-shop.vercel.app/api/product", // Forwards to backend API
-            },
-        ];
-    },
+    // async rewrites() {
+    //     return [
+    //         {
+    //             source: "/api/product", // Matches requests to /api/product on frontend
+    //             destination: "https://aroma-shop.vercel.app/api/product", // Forwards to backend API
+    //         },
+    //     ];
+    // },
     images: {
         remotePatterns: [
             {
