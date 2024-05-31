@@ -37,6 +37,8 @@ const DetailedProduct = () => {
         }
     }
 
+    console.log(detailedProduct.ratings);
+
     return (
         <section className="w-full py-4 px-8">
             <ToastContainer />
@@ -117,7 +119,7 @@ const DetailedProduct = () => {
                                 </h2>
                             </div>
                             {session ? (
-                                detailedProduct.ratings ? (
+                                detailedProduct.ratings != [] ? (
                                     <div className="mt-8 ">
                                         <p>This are the reviews</p>
                                     </div>

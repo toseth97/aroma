@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
                         </header>
                         <main className="">{children}</main>
                         <Footer />
+                        detailedProduct.ratings
                     </SessionWrapper>
                 </ProductProvider>
             </body>
