@@ -9,6 +9,7 @@ const handler = NextAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
             callback: async (profile, tokens) => {
                 await connectDB(); // Wait for the database connection to be established
+                console.log("connected to DB");
 
                 const user = {
                     name: profile.name,
@@ -17,12 +18,16 @@ const handler = NextAuth({
                     googleId: profile.sub,
                 };
 
+                console.log("Got user info");
+
                 const existingUser = await User.findOne({ email: user.email });
                 let localUser;
 
                 if (!existingUser) {
                     // Create a new local user document
                     localUser = new User(user);
+                    console.log("local user created");
+
                     try {
                         await localUser.save();
                     } catch (err) {
