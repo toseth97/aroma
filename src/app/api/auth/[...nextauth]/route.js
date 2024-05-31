@@ -19,15 +19,22 @@ const handler = NextAuth({
 
                 (async () => {
                     await connectDB();
-                    const existingUser = User.objects.find({
+                    const existingUser = await User.find({
                         email: user.email,
                     });
-                    !existingUser &&
-                        User.object.create({
+                    const localUser =
+                        !existingUser &&
+                        new User({
                             name: user.name,
                             email: user.email,
                             image: user.image,
                         });
+
+                    try {
+                        await localUser.save();
+                    } catch (err) {
+                        console.log(err.message);
+                    }
                 })();
             },
         }),
