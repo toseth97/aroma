@@ -6,7 +6,7 @@ import "./mediascreen.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SessionWrapper from "@/context/SessionProvider";
-
+import { useSession } from "next-auth/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -15,6 +15,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+    const { data: session } = useSession();
+    console.log(session);
     return (
         <html lang="en">
             <body className={`overflow-x-hidden`}>
@@ -25,7 +27,6 @@ export default function RootLayout({ children }) {
                         </header>
                         <main className="">{children}</main>
                         <Footer />
-                        detailedProduct.ratings
                     </SessionWrapper>
                 </ProductProvider>
             </body>
