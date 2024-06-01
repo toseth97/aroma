@@ -4,6 +4,7 @@ import { useContext } from "react";
 import ProductContext from "@/context/ProductContext";
 import ProductCard from "./ProductCard";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { useSession } from "next-auth/react";
 
 const Product = () => {
     const shopHeroRef = useRef();
@@ -48,6 +49,9 @@ const Product = () => {
     const filterDisplay = () => {
         setProductFilter(!productFilter);
     };
+
+    const { data: session } = useSession();
+    console.log(session);
     return (
         <>
             {productFilter && mobileFilter && (
