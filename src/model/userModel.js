@@ -17,6 +17,8 @@ const userSchema = new Schema({
     wallet: Number,
 });
 
-const User = mongoose.model.User || mongoose.model("User", userSchema);
+const User =
+    mongoose.model.User ||
+    mongoose.model("User", userSchema, { override: false });
 
 export default User;

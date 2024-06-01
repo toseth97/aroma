@@ -128,7 +128,7 @@ const DetailedProduct = () => {
                                 )
                             ) : (
                                 <button
-                                    href={signIn}
+                                    onClick={signIn}
                                     className="mt-8 font-semibold"
                                 >
                                     Sign in to add review

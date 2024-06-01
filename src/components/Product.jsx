@@ -14,7 +14,6 @@ const Product = () => {
     useEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
-            console.log(screenWidth);
         };
         handleResize();
     }, [screenWidth]);
@@ -51,7 +50,7 @@ const Product = () => {
     };
 
     const { data: session } = useSession();
-    console.log(session);
+
     return (
         <>
             {productFilter && mobileFilter && (
